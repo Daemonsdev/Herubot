@@ -1,0 +1,119 @@
+[
+    {
+        "data": {
+            "threadID": "8301249609923926",
+            "threadName": "TEST BOT",
+            "participantIDs": [
+                "61565365391278",
+                "61566347755440",
+                "61566368614176",
+                "100077070762554",
+                "100095054572020"
+            ],
+            "userInfo": [
+                {
+                    "id": "61565365391278",
+                    "name": "Heru Firstbot",
+                    "firstName": "Heru",
+                    "vanity": "",
+                    "thumbSrc": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/459158217_122103883808512179_4450014001546871845_n.jpg?stp=dst-jpg_s200x200&_nc_cat=108&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=ZSH0N4j0PpoQ7kNvgGp3Xox&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYDLKimDpZoKzRaVLN3ax8yK5CvI4EzMke4Ho0c-cXJXkg&oe=66FC2497",
+                    "profileUrl": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/459158217_122103883808512179_4450014001546871845_n.jpg?stp=dst-jpg_s200x200&_nc_cat=108&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=ZSH0N4j0PpoQ7kNvgGp3Xox&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYDLKimDpZoKzRaVLN3ax8yK5CvI4EzMke4Ho0c-cXJXkg&oe=66FC2497",
+                    "gender": "MALE",
+                    "type": "User",
+                    "isFriend": false,
+                    "isBirthday": false
+                },
+                {
+                    "id": "61566347755440",
+                    "name": "Heru Zaike",
+                    "firstName": "Heru",
+                    "vanity": "",
+                    "thumbSrc": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/460654362_122095204940544925_8366601434359723547_n.jpg?stp=dst-jpg_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=D3XyiQcYeRcQ7kNvgEFmxHj&_nc_ht=scontent-iad3-2.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYAfni23NP_hX_NFAE9b3MzxNzgm4e3zzSHZ93Uz0Il5Gw&oe=66FC310B",
+                    "profileUrl": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/460654362_122095204940544925_8366601434359723547_n.jpg?stp=dst-jpg_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=D3XyiQcYeRcQ7kNvgEFmxHj&_nc_ht=scontent-iad3-2.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYAfni23NP_hX_NFAE9b3MzxNzgm4e3zzSHZ93Uz0Il5Gw&oe=66FC310B",
+                    "gender": "MALE",
+                    "type": "User",
+                    "isFriend": false,
+                    "isBirthday": false
+                },
+                {
+                    "id": "61566368614176",
+                    "name": "Homura Akime",
+                    "firstName": "Homura",
+                    "vanity": "",
+                    "thumbSrc": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/461198270_122100060404545620_6373346634799903844_n.jpg?stp=dst-jpg_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=50d2ac&_nc_ohc=gYs5jJvG7bwQ7kNvgFFiGWp&_nc_ht=scontent-iad3-2.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYC9bMqymT3Xe9VXneGnRxgMojAqkJ5B9A_91tlsmdvrKA&oe=66FC4CC0",
+                    "profileUrl": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/461198270_122100060404545620_6373346634799903844_n.jpg?stp=dst-jpg_s200x200&_nc_cat=105&ccb=1-7&_nc_sid=50d2ac&_nc_ohc=gYs5jJvG7bwQ7kNvgFFiGWp&_nc_ht=scontent-iad3-2.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYC9bMqymT3Xe9VXneGnRxgMojAqkJ5B9A_91tlsmdvrKA&oe=66FC4CC0",
+                    "gender": "FEMALE",
+                    "type": "User",
+                    "isFriend": false,
+                    "isBirthday": false
+                },
+                {
+                    "id": "100077070762554",
+                    "name": "Jay Mar",
+                    "firstName": "Jay",
+                    "vanity": "jaymar.dev.00",
+                    "thumbSrc": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/460178932_529989109580110_7507347322656966124_n.jpg?stp=c0.0.736.736a_dst-jpg_s200x200&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=9yawWcxg_F0Q7kNvgF78nT7&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYAStts6sRiunXyPtlgIm0ROYylMOF8NFOKW1JvHutiJOA&oe=66FC5317",
+                    "profileUrl": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/460178932_529989109580110_7507347322656966124_n.jpg?stp=c0.0.736.736a_dst-jpg_s200x200&_nc_cat=102&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=9yawWcxg_F0Q7kNvgF78nT7&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYAStts6sRiunXyPtlgIm0ROYylMOF8NFOKW1JvHutiJOA&oe=66FC5317",
+                    "gender": "MALE",
+                    "type": "User",
+                    "isFriend": false,
+                    "isBirthday": false
+                },
+                {
+                    "id": "100095054572020",
+                    "name": "Jay Mar",
+                    "firstName": "Jay",
+                    "vanity": "heruko.00",
+                    "thumbSrc": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/458646928_368950949616721_330443793600645560_n.jpg?stp=dst-jpg_s200x200&_nc_cat=107&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=6sJptZDCVDYQ7kNvgEWRlms&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYCWjxXvrKUTyieOoCKbjTABLJWmUffAHbNmV2DfWO1qaA&oe=66FC41FA",
+                    "profileUrl": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/458646928_368950949616721_330443793600645560_n.jpg?stp=dst-jpg_s200x200&_nc_cat=107&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=6sJptZDCVDYQ7kNvgEWRlms&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=00_AYCWjxXvrKUTyieOoCKbjTABLJWmUffAHbNmV2DfWO1qaA&oe=66FC41FA",
+                    "gender": "MALE",
+                    "type": "User",
+                    "isFriend": false,
+                    "isBirthday": false
+                }
+            ],
+            "unreadCount": 0,
+            "messageCount": 33,
+            "timestamp": "1727424554535",
+            "muteUntil": null,
+            "isGroup": true,
+            "isSubscribed": true,
+            "isArchived": false,
+            "folder": "INBOX",
+            "cannotReplyReason": null,
+            "eventReminders": [],
+            "emoji": null,
+            "color": null,
+            "nicknames": {
+                "61566368614176": "𝙷𝚎𝚛𝚞 𝙱𝚘𝚝 • » - «"
+            },
+            "adminIDs": [
+                {
+                    "id": "100077070762554"
+                }
+            ],
+            "approvalMode": false,
+            "approvalQueue": [],
+            "reactionsMuteMode": "reactions_not_muted",
+            "mentionsMuteMode": "mentions_not_muted",
+            "isPinProtected": false,
+            "relatedPageThread": null,
+            "name": "TEST BOT",
+            "snippet": "Jay Mar added Jay Mar to the group.",
+            "snippetSender": "100077070762554",
+            "snippetAttachments": [],
+            "serverTimestamp": "1727424554535",
+            "imageSrc": "https://scontent-iad3-1.xx.fbcdn.net/v/t1.15752-9/370197595_285281824418905_3676716108712945606_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=935a9d&_nc_ohc=RAQ6ik4ELfoQ7kNvgHpMhLO&_nc_ht=scontent-iad3-1.xx&_nc_gid=AV4MY27twgU67cC9SOVJXHb&oh=03_Q7cD1QGHsJfoA_vzdGq2judGUYIWzLnnT1DOaahs3_JispgQuQ&oe=671DDA77",
+            "isCanonicalUser": false,
+            "isCanonical": false,
+            "recipientsLoadable": true,
+            "hasEmailParticipant": false,
+            "readOnly": false,
+            "canReply": true,
+            "lastMessageType": "message",
+            "lastReadTimestamp": "1727424554535",
+            "threadType": 2
+        },
+        "time": 1727424554842
+    }
+]

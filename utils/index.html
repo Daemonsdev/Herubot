@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Rona Bot</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.imgur.com/F7iLFkb.jpeg">
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: url('https://i.imgur.com/TFh6hdE.gif') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        background-blend-mode: overlay;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .happy-text {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.5em;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        animation: glow 1.5s infinite alternate;
+      }
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #f0f, 0 0 30px #f0f;
+        }
+        to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #ff0, 0 0 40px #ff0;
+        }
+      }
+      .content {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        width: 350px;
+      }
+      .square-gif {
+        width: 120px;
+        height: 120px;
+        background: url('https://i.imgur.com/i1z2f6x.gif') no-repeat center center;
+        background-size: cover;
+        border-radius: 15px;
+        margin: 0 auto 20px;
+      }
+      img {
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        margin: 10px auto;
+        display: block;
+        border: 5px solid rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+      }
+      img:hover {
+        transform: scale(1.1);
+        border-color: #fff;
+      }
+      h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.8em;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      .box {
+        margin: 20px 0;
+      }
+      .row {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+      .col-2 {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 8px 15px;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+      }
+      .col-2:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .icon {
+        margin-right: 10px;
+        font-size: 1.5em;
+        color: #fff;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: #00f2fe;
+      }
+      p {
+        font-size: 1em;
+        margin: 10px 0;
+        font-family: 'Poppins', sans-serif;
+      }
+      button {
+        font-family: 'Montserrat', sans-serif;
+        padding: 12px 25px;
+        margin-top: 20px;
+        background: #00f2fe;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        font-weight: bold;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+      button:hover {
+        background: #4facfe;
+        transform: scale(1.05);
+      }
+      button:focus {
+        outline: none;
+      }
+      audio {
+        display: none;
+      }
+      footer {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9em;
+        position: absolute;
+        bottom: 10px;
+        text-align: center;
+        width: 100%;
+        color: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="happy-text">BOT IS STILL RUNNING!</div>
+    <div class="content">
+      <div class="square-gif"></div>
+      <img
+        src="https://i.imgur.com/F7iLFkb.jpeg"
+        alt="Profile"
+      />
+      <h1>Heru Dev</h1>
+      <div class="box">
+        <div class="row">
+          <div class="col-2">
+            <div class="icon"><i class="fab fa-facebook"></i></div>
+            <a href="https://www.facebook.com/100077070762554" target="_blank">Facebook</a>
+          </div>
+        </div>
+      </div>
+      <p>Current Time: <span id="current-time"></span></p>
+      <p>Bot online: <span id="uptime"></span></p>
+      <p>This bot was made by <a href="https://facebook.com/100077070762554" target="_blank">Jay Mar</a></p>
+      <p id="ip-address">Loading IP...</p>
+      <button id="btnToggleMusic">Turn on Music</button>
+      <audio id="myMusic" loop>
+        <source src="https://l.top4top.io/m_3181lfj2p0.mp4" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <footer>© 2024 | Heru | All rights reserved.</footer>
+
+    <script>
+      function updateUptime() {
+        const startTime = new Date();
+        setInterval(() => {
+          const now = new Date();
+          const diff = now - startTime;
+          const hours = Math.floor(diff / 1000 / 60 / 60);
+          const minutes = Math.floor((diff / 1000 / 60) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+          document.getElementById('uptime').textContent = `${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+      }
+      updateUptime();
+
+      function updateTime() {
+        setInterval(() => {
+          const now = new Date();
+          const timeString = now.toLocaleTimeString();
+          const dateString = now.toLocaleDateString();
+          document.getElementById('current-time').textContent = `${dateString}, ${timeString}`;
+        }, 1000);
+      }
+      updateTime();
+
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('ip-address').textContent = 'IP: ' + data.ip;
+        });
+
+      document.getElementById('btnToggleMusic').addEventListener('click', function() {
+        const audio = document.getElementById('myMusic');
+        if (audio.paused) {
+          audio.play();
+          this.textContent = 'Turn off Music';
+        } else {
+          audio.pause();
+          this.textContent = 'Turn on Music';
+        }
+      });
+    </script>
+  </body>
+</html>
