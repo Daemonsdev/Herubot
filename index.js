@@ -6,7 +6,6 @@ require('./utils/index');
 const config = require('./config.json');
 const logger = require('./utils/logger');
 
-// Import font and cooldown handlers
 const { formatFont, font, userFontSettings } = require('./handle/font');
 const { isOnCooldown } = require('./handle/cooldown');
 
@@ -29,6 +28,8 @@ global.heru = {
 
 const commands = {};
 const commandPath = path.join(__dirname, 'src', 'cmds');
+let commandCount = 0;
+
 try {
   const files = fs.readdirSync(commandPath);
   files.forEach(file => {
@@ -37,11 +38,13 @@ try {
         const script = require(path.join(commandPath, file));
         commands[script.config.name] = script;
         logger.logger(formatFont(`Loaded command: ${script.config.name}`));
+        commandCount++;
       } catch (e) {
         logger.warn(formatFont(`Failed to load command: ${file}\nReason: ${e.message}`));
       }
     }
   });
+  console.log(formatFont(`Successfully loaded ${commandCount} commands.`));
 } catch (err) {
   logger.warn(formatFont(`Error reading command directory: ${err.message}`));
 }
@@ -83,7 +86,6 @@ function startBot(api) {
         api.sendMessage(formatFont(text), event.threadID, event.messageID);
       };
 
-      // Font command handling
       if (commandName === 'font') {
         if (args[0] === 'list') {
           const availableFonts = Object.keys(font).join(', ');
@@ -104,16 +106,14 @@ function startBot(api) {
         return reply('Invalid font command. Usage: font list, font change <fontName>, font enable, or font disable.', event);
       }
 
-      // Handle prefix message
       if (message === global.heru.prefix) {
         return reply(`Hello there! That's my prefix. Type ${global.heru.prefix}help to see all commands.`, event);
       }
 
-      // Valid command execution
       if (command) {
         if (command.config.prefix !== false && !isPrefixed) {
           react('⚠️', event);
-          return reply(`The Command "${commandName}" needs a prefix.`, event);
+          return reply(`The command "${commandName}" needs a prefix.`, event);
         }
         if (command.config.prefix === false && isPrefixed) {
           react('⚠️', event);
@@ -124,7 +124,6 @@ function startBot(api) {
           return reply(`You are not authorized to use the command "${commandName}".`, event);
         }
 
-        // Check for cooldown before running command
         const cooldownTime = isOnCooldown(commandName, uid, command.config.cooldown * 1000 || 3000);
         if (cooldownTime) {
           return reply(`⏳ Command still on cooldown for ${cooldownTime.toFixed(1)} second(s).`, event);
@@ -136,10 +135,8 @@ function startBot(api) {
           react('⚠️', event);
           reply(`Error executing command '${commandName}': ${error.message}`, event);
         }
-      } 
-      // Invalid command handling
-      else if (isPrefixed) {
-        api.sendMessage(formatFont(`The command "${commandName}" does not exist. Please type ${global.heru.prefix}help to see the list of commands.`, event.threadID, event.messageID));
+      } else if (isPrefixed) {
+        api.sendMessage(formatFont(`The command "${commandName}" does not exist. Please type ${global.heru.prefix}help to see the list of commands.`), event.threadID, event.messageID);
       }
     } else if (event.type === 'event' && event.logMessageType === 'log:subscribe') {
       const { threadID } = event;
@@ -147,15 +144,16 @@ function startBot(api) {
       const { threadName, participantIDs } = threadInfo;
 
       if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
+        const authorName = "https://facebook.com/" + event.author;
         api.changeNickname(
-          formatFont(`${global.heru.botName} • » ${global.heru.prefix} «`),
+          `${global.heru.botName} • [ ${global.heru.prefix} ]`,
           event.threadID,
           api.getCurrentUserID()
         );
 
         api.sendMessage(
-          formatFont(`✅ Connected successfully. Type "${global.heru.prefix} help" to see all commands.`),
-          event.threadID
+          formatFont(`✅ Connected successfully. Type "${global.heru.prefix}help" to see all commands.`),
+          threadID
         );
       }
     }

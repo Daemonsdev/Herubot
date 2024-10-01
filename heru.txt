@@ -5,8 +5,6 @@ const login = require('./login/fb-chat-api/index');
 require('./utils/index');
 const config = require('./config.json');
 const logger = require('./utils/logger');
-const autopost = require('./handle/autopost');
-const autocomment = require('./handle/autocomment');
 
 // Import font and cooldown handlers
 const { formatFont, font, userFontSettings } = require('./handle/font');
@@ -26,9 +24,7 @@ global.heru = {
   ENDPOINT: "https://deku-rest-api.gleeze.com",
   admin: new Set(config.ADMINBOT),
   prefix: config.PREFIX,
-  botName: config.BOTNAME,
-  autpost: true,
-  autocomment: true
+  botName: config.BOTNAME
 };
 
 const commands = {};
@@ -56,8 +52,6 @@ login({ appState: appstate }, (err, api) => {
     return;
   }
   startBot(api);
-  autopost(api);
-  autocomment(api);
 });
 
 function startBot(api) {
@@ -89,40 +83,37 @@ function startBot(api) {
         api.sendMessage(formatFont(text), event.threadID, event.messageID);
       };
 
-      if (!command) {
-  if (commandName) {
-    return reply(`The "${commandName}" is valid but not recognized. Please type ${global.heru.prefix}help to see all commands.`, event);
-  }
+      // Font command handling
+      if (commandName === 'font') {
+        if (args[0] === 'list') {
+          const availableFonts = Object.keys(font).join(', ');
+          return reply(`Available fonts: ${availableFonts}`, event);
+        }
+        if (args[0] === 'change' && args[1] && font[args[1]]) {
+          userFontSettings.currentFont = args[1];
+          return reply(`Font changed to: ${args[1]}`, event);
+        }
+        if (args[0] === 'enable') {
+          userFontSettings.enabled = true;
+          return reply('Font styling enabled.', event);
+        }
+        if (args[0] === 'disable') {
+          userFontSettings.enabled = false;
+          return reply('Font styling disabled.', event);
+        }
+        return reply('Invalid font command. Usage: font list, font change <fontName>, font enable, or font disable.', event);
+      }
 
-  if (commandName === 'font') {
-    if (args[0] === 'list') {
-      const availableFonts = Object.keys(font).join(', ');
-      return reply(`Available fonts: ${availableFonts}`, event);
-    }
-    if (args[0] === 'change' && args[1] && font[args[1]]) {
-      userFontSettings.currentFont = args[1];
-      return reply(`Font changed to: ${args[1]}`, event);
-    }
-    if (args[0] === 'enable') {
-      userFontSettings.enabled = true;
-      return reply('Font styling enabled.', event);
-    }
-    if (args[0] === 'disable') {
-      userFontSettings.enabled = false;
-      return reply('Font styling disabled.', event);
-    }
-    return reply('Invalid font command. Usage: font list, font change <fontName>, font enable, or font disable.', event);
-  }
+      // Handle prefix message
+      if (message === global.heru.prefix) {
+        return reply(`Hello there! That's my prefix. Type ${global.heru.prefix}help to see all commands.`, event);
+      }
 
-  if (message === global.heru.prefix) {
-    return reply(`Hello there! that's my prefix. Type ${global.heru.prefix}help to see all commands.`, event);
-  }
-}
-
+      // Valid command execution
       if (command) {
         if (command.config.prefix !== false && !isPrefixed) {
           react('⚠️', event);
-          return reply(`The Command "${commandName}" needs a prefix.`, event);
+          return reply(`The command "${commandName}" needs a prefix.`, event);
         }
         if (command.config.prefix === false && isPrefixed) {
           react('⚠️', event);
@@ -134,7 +125,7 @@ function startBot(api) {
         }
 
         // Check for cooldown before running command
-        const cooldownTime = isOnCooldown(commandName, uid, command.config.cooldown * 1000 || 3000 * 4000 * 5000 * 6000);
+        const cooldownTime = isOnCooldown(commandName, uid, command.config.cooldown * 1000 || 3000);
         if (cooldownTime) {
           return reply(`⏳ Command still on cooldown for ${cooldownTime.toFixed(1)} second(s).`, event);
         }
@@ -145,6 +136,10 @@ function startBot(api) {
           react('⚠️', event);
           reply(`Error executing command '${commandName}': ${error.message}`, event);
         }
+      } 
+      // Invalid command handling
+      else if (isPrefixed) {
+        api.sendMessage(formatFont(`The command "${commandName}" does not exist. Please type ${global.heru.prefix}help to see the list of commands.`), event.threadID, event.messageID);
       }
     } else if (event.type === 'event' && event.logMessageType === 'log:subscribe') {
       const { threadID } = event;
@@ -159,9 +154,8 @@ function startBot(api) {
         );
 
         api.sendMessage(
-          formatFont("✅ Connected successfully. Type \"" + global.heru.prefix + " help\" to see all commands."),
-          api.getCurrentUserID(),
-          event.threadID
+          formatFont(`✅ Connected successfully. Type "${global.heru.prefix}help" to see all commands.`),
+          threadID
         );
       }
     }
